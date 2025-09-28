@@ -1,0 +1,31 @@
+
+[
+  {
+    "id": 1,
+    "title": "Project Alpha",
+    "student": "Student A",
+    "description": "This is a description for Project Alpha.",
+    "image": "/placeholders/image1.png"
+  },
+  {
+    "id": 2,
+    "title": "Project Beta",
+    "student": "Student B",
+    "description": "This is a description for Project Beta.",
+    "image": "/placeholders/image2.png"
+  },
+  {
+    "id": 3,
+    "title": "Project Gamma",
+    "student": "Student C",
+    "description": "This is a description for Project Gamma.",
+    "image": "/placeholders/image3.png"
+  },
+  {
+    "id": 4,
+    "title": "Project Delta",
+    "student": "Student D",
+    "description": "This is a description for Project Delta.",
+    "image": "/placeholders/image4.png"
+  }
+]
