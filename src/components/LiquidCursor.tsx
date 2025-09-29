@@ -3,18 +3,17 @@
 import { useEffect, useRef } from 'react';
 
 // Helper function for linear interpolation
-const lerp = (a, b, n) => (1 - n) * a + n * b;
+const lerp = (a: number, b: number, n: number): number => (1 - n) * a + n * b;
 
 const WobblyRingCursor = () => {
-  const orbRef = useRef(null);
-
+  const orbRef = useRef<HTMLDivElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
   const previousMouse = useRef({ x: 0, y: 0 });
   const orb = useRef({ x: 0, y: 0, scaleX: 1, scaleY: 1 });
-  const animationFrameId = useRef();
+  const animationFrameId = useRef<number>(0); // 타입 수정
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener('mousemove', handleMouseMove);
@@ -58,14 +57,14 @@ const WobblyRingCursor = () => {
         position: 'fixed',
         left: 0,
         top: 0,
-        width: '30px', // Smaller size
-        height: '30px', // Smaller size
-        marginLeft: '-15px', // Center the orb
-        marginTop: '-15px',  // Center the orb
+        width: '30px',
+        height: '30px',
+        marginLeft: '-15px',
+        marginTop: '-15px',
         borderRadius: '50%',
         background: 'transparent',
         border: '3px solid rgba(255, 255, 255, 0.2)',
-        backdropFilter: 'blur(5px)', // Subtle blur
+        backdropFilter: 'blur(5px)',
         WebkitBackdropFilter: 'blur(5px)',
         pointerEvents: 'none',
         zIndex: 9999,
