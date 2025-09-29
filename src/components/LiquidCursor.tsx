@@ -14,7 +14,7 @@ const WobblyRingCursor = () => {
   const animationFrameId = useRef();
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+const handleMouseMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY };
     };
     window.addEventListener('mousemove', handleMouseMove);
