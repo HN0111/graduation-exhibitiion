@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 // Helper function for linear interpolation
-const lerp = (a, b, n) => (1 - n) * a + n * b;
+const lerp = (a: number, b: number, n: number): number => (1 - n) * a + n * b;
 
 const WobblyRingCursor = () => {
   const orbRef = useRef(null);
