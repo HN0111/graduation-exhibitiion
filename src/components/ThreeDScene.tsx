@@ -52,13 +52,17 @@ function Model({ path, speedMultiplier = 1, ...props }) {
 useGLTF.preload('/models/Flower.glb');
 useGLTF.preload('/models/Kim.glb');
 useGLTF.preload('/models/mua.glb');
+useGLTF.preload('/models/Apple.glb');
+useGLTF.preload('/models/Park.glb');
 
 // Main 3D scene component
 const ThreeDScene = () => {
   const models = [
-    { path: '/models/Flower.glb', position: [-4, 0, 0], scale: 1.5, speedMultiplier: 1 },
+    { path: '/models/Flower.glb', position: [-4, -1.0, 0], scale: 0.72, speedMultiplier: 1 },
     { path: '/models/Kim.glb', position: [0, -0.5, 0], scale: 0.8, speedMultiplier: 0.5 },
-    { path: '/models/mua.glb', position: [4, 0, 0], scale: 0.7, speedMultiplier: 1 },
+    { path: '/models/mua.glb', position: [-1.5, 1.0, 0], scale: 0.98, speedMultiplier: 1 },
+    { path: '/models/Apple.glb', position: [0.5, -2.0, 0], scale: 1.4, speedMultiplier: 1 },
+    { path: '/models/Park.glb', position: [4, 0, 0], scale: 39, speedMultiplier: 0.5 },
   ];
 
   return (
