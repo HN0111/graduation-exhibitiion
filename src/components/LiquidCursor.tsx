@@ -6,7 +6,11 @@ import { useEffect, useRef } from 'react';
 const lerp = (a: number, b: number, n: number): number => (1 - n) * a + n * b;
 
 const WobblyRingCursor = () => {
-  const orbRef = useRef(null);
+  import { useRef, useEffect } from 'react'; // useRef가 import 되어 있는지 확인하세요.
+
+// ...
+
+const orbRef = useRef<HTMLDivElement>(null);
 
   const mouse = useRef({ x: 0, y: 0 });
   const previousMouse = useRef({ x: 0, y: 0 });
