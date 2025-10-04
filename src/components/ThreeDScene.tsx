@@ -2,9 +2,9 @@
 
 import * as THREE from 'three';
 import { useRef, Suspense } from 'react';
-import { Canvas, useFrame, GroupProps, RootState, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame, GroupProps, RootState } from '@react-three/fiber';
 import { useGLTF, Environment, OrbitControls } from '@react-three/drei';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+
 import { useRouter } from 'next/navigation';
 
 // --- TYPE DEFINITIONS ---
