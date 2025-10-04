@@ -12,7 +12,7 @@ interface ModelProps extends GroupProps {
 
 export function MuaModel({ speedMultiplier = 1, ...props }: ModelProps) {
   const modelRef = useRef<THREE.Group>(null!);
-  const { scene } = useGLTF('/models/mua.glb');
+  const { scene } = useGLTF('https://pub-76928191cc6045f998d59a3641f27efe.r2.dev/mua.glb');
   const router = useRouter();
 
   const rotationSpeeds = useRef({
@@ -46,4 +46,4 @@ export function MuaModel({ speedMultiplier = 1, ...props }: ModelProps) {
   );
 }
 
-useGLTF.preload('/models/mua.glb');
+useGLTF.preload('https://pub-76928191cc6045f998d59a3641f27efe.r2.dev/mua.glb');

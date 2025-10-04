@@ -12,7 +12,7 @@ interface ModelProps extends GroupProps {
 
 export function ParkModel({ speedMultiplier = 1, ...props }: ModelProps) {
   const modelRef = useRef<THREE.Group>(null!);
-  const { scene } = useGLTF('/models/Park.glb');
+  const { scene } = useGLTF('https://pub-76928191cc6045f998d59a3641f27efe.r2.dev/Park.glb');
   const router = useRouter();
 
   const rotationSpeeds = useRef({
@@ -46,4 +46,4 @@ export function ParkModel({ speedMultiplier = 1, ...props }: ModelProps) {
   );
 }
 
-useGLTF.preload('/models/Park.glb');
+useGLTF.preload('https://pub-76928191cc6045f998d59a3641f27efe.r2.dev/Park.glb');
