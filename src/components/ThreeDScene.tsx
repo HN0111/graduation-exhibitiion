@@ -2,39 +2,39 @@
 
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { useGLTF, Environment, OrbitControls } from '@react-three/drei';
 
-import { AppleModel } from './models/AppleModel';
-import { FlowerModel } from './models/FlowerModel';
-import { KimModel } from './models/KimModel';
-import { ParkModel } from './models/ParkModel';
-import { MuaModel } from './models/MuaModel';
+// 컴포넌트가 받을 props의 타입을 정의합니다.
+interface ModelProps {
+  name: string;
+}
 
-const models = [
-  { Component: FlowerModel, position: [-4, -1.0, 0], scale: 0.72 },
-  { Component: KimModel, position: [0, -0.5, 0], scale: 0.8 },
-  { Component: MuaModel, position: [-1.5, 1.0, 0], scale: 0.98 },
-  { Component: ParkModel, position: [4, 0, 0], scale: 39 },
-  { Component: AppleModel, position: [0.5, -2.0, 0], scale: 1.4 },
-];
+// 실제 3D 모델을 로드하고 화면에 표시하는 컴포넌트입니다.
+// 이제 'name' prop을 사용해 올바른 파일 경로를 동적으로 생성합니다.
+function Model({ name }: ModelProps) {
+  const modelPath = `/models/${name}.glb`;
+  const { scene } = useGLTF(modelPath);
+  return <primitive object={scene} />;
+}
 
-function ThreeDScene() {
+// 메인 씬 컴포넌트의 props 타입을 정의합니다.
+interface ThreeDSceneProps {
+  name: string;
+}
+
+// 이제 메인 컴포넌트가 'name' prop을 받아 Model 컴포넌트로 전달합니다.
+const ThreeDScene = ({ name }: ThreeDSceneProps) => {
   return (
-    <Canvas style={{ background: '#f0f0f0' }} camera={{ position: [0, 0, 10], fov: 50 }}>
+    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
       <ambientLight intensity={0.5} />
-      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-      <pointLight position={[-10, -10, -10]} />
+      <directionalLight position={[10, 10, 5]} intensity={1} />
       <Suspense fallback={null}>
-        {models.map((model, index) => (
-          <group key={index} position={model.position as [number, number, number]} scale={model.scale}>
-            <model.Component />
-          </group>
-        ))}
-        <Environment preset="city" />
+        <Model name={name} />
+        <Environment preset="sunset" />
       </Suspense>
       <OrbitControls />
     </Canvas>
   );
-}
+};
 
 export default ThreeDScene;
